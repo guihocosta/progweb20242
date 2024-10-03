@@ -7,12 +7,19 @@
 </head>
 <body>
     <?php
-        echo "<h1>URLs Absolutas </h1>",
-        "<a href='https://www.w3.org/'>W3C</a> <br>",
-        "<a href='https://www.google.com/'>Google</a>",
-        "<h1>URLs relativas</h1>",
-        "<a href='urlrelativo.php'>Teste 1</a> <br>",
-        "<a href='urlrelativo2.php'>Teste 2</a>";
+        $texto = "";
+        $datetime = new DateTime( "now", new DateTimeZone( "America/Sao_Paulo" ) );
+        $hora = $datetime->format( 'H' );
+
+        if($hora >= 0 && $hora <= 12){
+            $print = "<img src='img-bomdia.png'> <h1> Bom dia </h1>";
+        } elseif ($hora > 12 && $hora < 18){
+            $print = "<img src='img-boatarde.jpg'> <h1> Boa Tarde </h1>";
+        } elseif($hora >= 18 && $hora <= 24){
+            $print = "<img src='img-boanoite.jpg'> <h1> Boa Noite </h1>";
+        }
+        echo $print;
+
     ?>
 </body>
 </html>
